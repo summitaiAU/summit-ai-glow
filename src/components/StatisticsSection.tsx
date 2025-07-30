@@ -22,25 +22,44 @@ const StatisticsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Column 1 */}
           <div className="text-left">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
-                  <Counter end={10} duration={2000} suffix="+" isVisible={isVisible} />
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                  <Counter end={17} duration={2000} suffix="M+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
               <p className="text-lg text-white/80 leading-relaxed font-sans">
-                Bespoke AI solutions developed
+                Professionals upskilled in AI via our platforms
               </p>
+              <a 
+                href="#content" 
+                className="inline-flex items-center text-accent hover:text-accent-glow transition-colors duration-300 group"
+              >
+                Watch our content here
+                <svg 
+                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                  />
+                </svg>
+              </a>
             </div>
           </div>
 
           {/* Column 2 */}
           <div className="text-left">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
-                  <Counter end={25} duration={2000} suffix="+" isVisible={isVisible} />
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                  <Counter end={435} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
@@ -52,15 +71,15 @@ const StatisticsSection = () => {
 
           {/* Column 3 */}
           <div className="text-left">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
-                  <Counter end={100} duration={2000} suffix="%" isVisible={isVisible} />
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                  <Counter end={55} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
               <p className="text-lg text-white/80 leading-relaxed font-sans">
-                Client satisfaction rate
+                Bespoke AI solutions developed
               </p>
             </div>
           </div>
