@@ -191,6 +191,7 @@
 
   /* Animated text gradient */
   .animated-text {
+    color: white; /* Fallback color */
     background: linear-gradient(135deg, 
       rgba(255, 255, 255, 1) 0%, 
       rgba(255, 255, 255, 0.6) 20%,
@@ -201,9 +202,15 @@
       rgba(255, 255, 255, 1) 100%);
     background-size: 300% 300%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: text-gradient-flow 8s ease-in-out infinite;
+  }
+  
+  /* Apply transparent fill only when gradient is supported */
+  @supports (-webkit-background-clip: text) {
+    .animated-text {
+      -webkit-text-fill-color: transparent;
+    }
   }
 }
 
