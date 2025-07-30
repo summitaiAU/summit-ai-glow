@@ -3,32 +3,44 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import StatisticsSection from '@/components/StatisticsSection';
 import PartnershipSection from '@/components/PartnershipSection';
-import LoadingScreen from '@/components/LoadingScreen';
+import SummitAILogo from '@/components/SummitAILogo';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [elementsLoaded, setElementsLoaded] = useState({
-    background: false,
-    images: false,
-    splineReady: false
+  const [loadingChecks, setLoadingChecks] = useState({
+    splineLoaded: false,
+    contentLoaded: false,
+    assetsLoaded: false,
+    minimumTimeElapsed: false
   });
-  const [loadingStartTime] = useState(Date.now());
+  const [showHomepage, setShowHomepage] = useState(false);
+  const [hideLoadingScreen, setHideLoadingScreen] = useState(false);
 
-  // Check if all elements are loaded
-  useEffect(() => {
-    if (elementsLoaded.background && elementsLoaded.images && elementsLoaded.splineReady) {
-      // Ensure minimum loading time of 2 seconds for better UX
-      const elapsed = Date.now() - loadingStartTime;
-      const minLoadTime = 2000;
-      const remainingTime = Math.max(0, minLoadTime - elapsed);
-      
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, remainingTime + 500); // Additional 500ms for smooth transition
-      
-      return () => clearTimeout(timer);
+  // Check if all loading conditions are met
+  const checkAllLoaded = () => {
+    if (Object.values(loadingChecks).every(check => check === true)) {
+      revealHomepage();
     }
-  }, [elementsLoaded, loadingStartTime]);
+  };
+
+  const revealHomepage = () => {
+    setShowHomepage(true);
+    setTimeout(() => {
+      setHideLoadingScreen(true);
+    }, 100); // Small delay for smooth transition
+  };
+
+  // Check loading status whenever loadingChecks changes
+  useEffect(() => {
+    checkAllLoaded();
+  }, [loadingChecks]);
+
+  // Minimum loading time
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingChecks(prev => ({ ...prev, minimumTimeElapsed: true }));
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Preload images
   useEffect(() => {
@@ -45,62 +57,85 @@ const Index = () => {
       img.onload = () => {
         loadedCount++;
         if (loadedCount === totalImages) {
-          setElementsLoaded(prev => ({ ...prev, images: true }));
+          setLoadingChecks(prev => ({ ...prev, assetsLoaded: true }));
         }
       };
       img.onerror = () => {
         loadedCount++;
         if (loadedCount === totalImages) {
-          setElementsLoaded(prev => ({ ...prev, images: true }));
+          setLoadingChecks(prev => ({ ...prev, assetsLoaded: true }));
         }
       };
       img.src = url;
     });
   }, []);
 
+  // Check when window is fully loaded
+  useEffect(() => {
+    const handleLoad = () => {
+      setLoadingChecks(prev => ({ ...prev, contentLoaded: true }));
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
   const handleBackgroundLoad = () => {
-    setElementsLoaded(prev => ({ ...prev, background: true }));
-    
-    // Additional check for Spline content readiness
+    // Give Spline extra time to render before marking as loaded
     setTimeout(() => {
-      setElementsLoaded(prev => ({ ...prev, splineReady: true }));
-    }, 1000); // Give Spline extra time to render
+      setLoadingChecks(prev => ({ ...prev, splineLoaded: true }));
+    }, 1000);
   };
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
-  if (isLoading) {
-    return <LoadingScreen onComplete={handleLoadingComplete} />;
-  }
   return (
-    <div className="min-h-screen relative animate-fade-in">
-      {/* Fallback Background - Prevents white flash */}
-      <div className="fixed top-0 left-0 w-screen h-screen z-[-2]"
-           style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' }} />
-      
-      {/* 3D Animated Background */}
-      <iframe 
-        id="spline-background"
-        src="https://my.spline.design/animatedgradientbackgroundforweb-rMoVYVkwOU56cPVND2NH4lpP/" 
-        frameBorder="0" 
-        width="100%" 
-        height="100%" 
-        className="fixed top-0 left-0 w-screen h-screen z-[-1] pointer-events-none"
-        title="Animated Background"
-        loading="eager"
-        onLoad={handleBackgroundLoad}
-      />
-      
-      {/* Content */}
-      <div className="relative z-10">
-        <Header />
-        <HeroSection />
-        <StatisticsSection />
-        <PartnershipSection />
+    <>
+      {/* Loading Screen Curtain */}
+      <div 
+        className={`fixed top-0 left-0 w-screen h-screen z-[9999] bg-background flex items-center justify-center transition-all duration-800 ease-out ${
+          hideLoadingScreen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100'
+        }`}
+      >
+        <div className="animate-pulse">
+          <SummitAILogo />
+        </div>
       </div>
-    </div>
+
+      {/* Homepage - Loads immediately but stays hidden */}
+      <div 
+        className={`min-h-screen relative transition-all duration-800 ease-in-out ${
+          showHomepage ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        {/* Fallback Background - Prevents white flash */}
+        <div className="fixed top-0 left-0 w-screen h-screen z-[-2]"
+             style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' }} />
+        
+        {/* 3D Animated Background */}
+        <iframe 
+          id="spline-background"
+          src="https://my.spline.design/animatedgradientbackgroundforweb-rMoVYVkwOU56cPVND2NH4lpP/" 
+          frameBorder="0" 
+          width="100%" 
+          height="100%" 
+          className="fixed top-0 left-0 w-screen h-screen z-[-1] pointer-events-none"
+          title="Animated Background"
+          loading="eager"
+          onLoad={handleBackgroundLoad}
+        />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          <Header />
+          <HeroSection />
+          <StatisticsSection />
+          <PartnershipSection />
+        </div>
+      </div>
+    </>
   );
 };
 
