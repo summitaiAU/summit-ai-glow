@@ -1,7 +1,9 @@
 import React from 'react';
 import AnimatedText from './AnimatedText';
+import { useScrollFade } from '@/hooks/useScrollFade';
 
 const HeroSection = () => {
+  const { getFadeStyle } = useScrollFade();
   const animatedWords = [
     'Development',
     'Consulting', 
@@ -13,7 +15,7 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center animated-bg relative">
-      <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
+      <div className="text-center space-y-8 px-8 max-w-4xl mx-auto" style={getFadeStyle()}>
         {/* Main Headline */}
         <div className="space-y-4">
           <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">

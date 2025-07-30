@@ -1,11 +1,13 @@
 import React from 'react';
+import { useScrollFade } from '@/hooks/useScrollFade';
 
 const StatisticsSection = () => {
+  const { getFadeStyle } = useScrollFade();
   return (
-    <section className="animated-bg relative py-20" data-scroll-section>
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="animated-bg relative py-20">
+      <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(400)}>
         {/* Headline */}
-        <div className="mb-16" data-scroll data-scroll-speed="0.5">
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left">
             <span className="text-white">We don't sell AI. We sell </span>
             <span className="text-accent italic">Results</span>
@@ -16,7 +18,7 @@ const StatisticsSection = () => {
         {/* Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Column 1 */}
-          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.1">
+          <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
                 <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
@@ -50,7 +52,7 @@ const StatisticsSection = () => {
           </div>
 
           {/* Column 2 */}
-          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.2">
+          <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
                 <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
@@ -65,7 +67,7 @@ const StatisticsSection = () => {
           </div>
 
           {/* Column 3 */}
-          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.3">
+          <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
                 <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
