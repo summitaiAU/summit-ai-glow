@@ -26,7 +26,7 @@ const Index = () => {
     return <LoadingScreen onComplete={handleLoadingComplete} />;
   }
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative animate-fade-in">
       {/* 3D Animated Background */}
       <iframe 
         src="https://my.spline.design/animatedgradientbackgroundforweb-rMoVYVkwOU56cPVND2NH4lpP/" 
