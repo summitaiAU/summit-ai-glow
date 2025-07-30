@@ -14,10 +14,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-8 transition-all duration-500 ${
-      isScrolled ? 'top-4' : 'top-8'
+    <header className={`fixed top-2 sm:top-3 md:top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-4 sm:px-6 md:px-8 transition-all duration-500 ${
+      isScrolled ? 'top-2 sm:top-3 md:top-4' : 'top-4 sm:top-6 md:top-8'
     }`}>
-      <div className={`flex justify-between items-center rounded-2xl px-8 py-4 transition-all duration-500 ${
+      <div className={`flex justify-between items-center rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 transition-all duration-500 ${
         isScrolled 
           ? 'bg-black/20 backdrop-blur-xl border border-white/30 shadow-2xl shadow-black/20' 
           : 'bg-transparent'
@@ -28,7 +28,7 @@ const Header = () => {
         {/* Get In Touch Button */}
         <Button 
           variant="ghost" 
-          className="btn-ghost text-primary hover:text-accent transition-colors duration-300"
+          className="btn-ghost text-primary hover:text-accent transition-colors duration-300 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3"
         >
           Get In Touch
           <svg 

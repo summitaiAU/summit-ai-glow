@@ -21,38 +21,38 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative">
-      <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
+      <div className="text-center space-y-4 sm:space-y-6 md:space-y-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">
-          <h1 ref={mainHeadlineRef.ref} style={mainHeadlineRef.style} className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
+          <h1 ref={mainHeadlineRef.ref} style={mainHeadlineRef.style} className="font-sans text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white animated-text">
             We are not an AI
           </h1>
           
           {/* Animated Middle Word */}
-          <div ref={animatedTextRef.ref} style={animatedTextRef.style} className="h-20 md:h-28 lg:h-32 flex items-center justify-center">
+          <div ref={animatedTextRef.ref} style={animatedTextRef.style} className="h-16 sm:h-18 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center">
             <AnimatedText 
               words={animatedWords}
-              className="font-display text-4xl md:text-6xl lg:text-7xl"
+              className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl"
             />
           </div>
           
           {/* Company */}
-          <h2 ref={companyRef.ref} style={companyRef.style} className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
+          <h2 ref={companyRef.ref} style={companyRef.style} className="font-sans text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white animated-text">
             Company
           </h2>
         </div>
         
         {/* Tagline */}
-        <div className="pt-8">
-          <p ref={taglineRef.ref} style={taglineRef.style} className="text-lg md:text-xl text-white font-medium opacity-80 animated-text">
+        <div className="pt-4 sm:pt-6 md:pt-8">
+          <p ref={taglineRef.ref} style={taglineRef.style} className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-medium opacity-80 animated-text">
             We are all of the above.
           </p>
         </div>
         
         {/* Subtle call-to-action */}
-        <div className="pt-12 opacity-60">
-          <div ref={ctaRef.ref} style={ctaRef.style} className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
-            <span>Discover what we can build together</span>
+        <div className="pt-8 sm:pt-10 md:pt-12 opacity-60">
+          <div ref={ctaRef.ref} style={ctaRef.style} className="flex items-center justify-center space-x-2 text-xs sm:text-sm text-muted-foreground">
+            <span className="text-center">Discover what we can build together</span>
             <svg 
               className="w-4 h-4 animate-bounce" 
               fill="none" 
