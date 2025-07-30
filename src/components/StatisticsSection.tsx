@@ -1,17 +1,22 @@
 import React from 'react';
-import { useScrollFade } from '@/hooks/useScrollFade';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useViewportFade } from '@/hooks/useViewportFade';
 import Counter from './Counter';
 
 const StatisticsSection = () => {
-  const { getFadeStyle } = useScrollFade();
   const { ref, isVisible } = useIntersectionObserver();
+  const { useFadeRef } = useViewportFade();
+  const headlineRef = useFadeRef();
+  const stat1Ref = useFadeRef();
+  const stat2Ref = useFadeRef();
+  const stat3Ref = useFadeRef();
+
   return (
     <section ref={ref} className={`min-h-screen flex items-center justify-center relative py-20 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-      <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(0)}>
+      <div className="max-w-7xl mx-auto px-8">
         {/* Headline */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left font-sans">
+          <h2 ref={headlineRef.ref} style={headlineRef.style} className="text-4xl md:text-5xl lg:text-6xl font-bold text-left font-sans">
             <span className="text-white">We don't sell AI. We sell </span>
             <span className="text-accent italic">Results</span>
             <span className="text-white">.</span>
@@ -21,7 +26,7 @@ const StatisticsSection = () => {
         {/* Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Column 1 */}
-          <div className="text-left">
+          <div ref={stat1Ref.ref} style={stat1Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
                 <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
@@ -36,7 +41,7 @@ const StatisticsSection = () => {
           </div>
 
           {/* Column 2 */}
-          <div className="text-left">
+          <div ref={stat2Ref.ref} style={stat2Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
                 <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
@@ -51,7 +56,7 @@ const StatisticsSection = () => {
           </div>
 
           {/* Column 3 */}
-          <div className="text-left">
+          <div ref={stat3Ref.ref} style={stat3Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
                 <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">

@@ -1,9 +1,9 @@
 import React from 'react';
 import AnimatedText from './AnimatedText';
-import { useScrollFade } from '@/hooks/useScrollFade';
+import { useViewportFade } from '@/hooks/useViewportFade';
 
 const HeroSection = () => {
-  const { getFadeStyle } = useScrollFade();
+  const { useFadeRef } = useViewportFade();
   const animatedWords = [
     'Development',
     'Consulting', 
@@ -13,17 +13,23 @@ const HeroSection = () => {
     'Strategy'
   ];
 
+  const mainHeadlineRef = useFadeRef();
+  const animatedTextRef = useFadeRef();
+  const companyRef = useFadeRef();
+  const taglineRef = useFadeRef();
+  const ctaRef = useFadeRef();
+
   return (
     <section className="min-h-screen flex items-center justify-center animated-bg relative">
-      <div className="text-center space-y-8 px-8 max-w-4xl mx-auto" style={getFadeStyle()}>
+      <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">
-          <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
+          <h1 ref={mainHeadlineRef.ref} style={mainHeadlineRef.style} className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
             We are not an AI
           </h1>
           
           {/* Animated Middle Word */}
-          <div className="h-20 md:h-28 lg:h-32 flex items-center justify-center">
+          <div ref={animatedTextRef.ref} style={animatedTextRef.style} className="h-20 md:h-28 lg:h-32 flex items-center justify-center">
             <AnimatedText 
               words={animatedWords}
               className="font-display text-4xl md:text-6xl lg:text-7xl"
@@ -31,21 +37,21 @@ const HeroSection = () => {
           </div>
           
           {/* Company */}
-          <h2 className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
+          <h2 ref={companyRef.ref} style={companyRef.style} className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
             Company
           </h2>
         </div>
         
         {/* Tagline */}
         <div className="pt-8">
-          <p className="text-lg md:text-xl text-white font-medium opacity-80 animated-text">
+          <p ref={taglineRef.ref} style={taglineRef.style} className="text-lg md:text-xl text-white font-medium opacity-80 animated-text">
             We are all of the above.
           </p>
         </div>
         
         {/* Subtle call-to-action */}
         <div className="pt-12 opacity-60">
-          <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+          <div ref={ctaRef.ref} style={ctaRef.style} className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
             <span>Discover what we can build together</span>
             <svg 
               className="w-4 h-4 animate-bounce" 

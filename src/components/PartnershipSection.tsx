@@ -1,11 +1,14 @@
 import React from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { useScrollFade } from '@/hooks/useScrollFade';
+import { useViewportFade } from '@/hooks/useViewportFade';
 import { Button } from '@/components/ui/button';
 
 const PartnershipSection = () => {
   const { ref, isVisible } = useIntersectionObserver();
-  const { getFadeStyle } = useScrollFade();
+  const { useFadeRef } = useViewportFade();
+
+  const headlineRef = useFadeRef();
+  const buttonRef = useFadeRef();
 
   return (
     <section 
@@ -14,15 +17,17 @@ const PartnershipSection = () => {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <div className="max-w-4xl mx-auto px-8 text-center" style={getFadeStyle(0)}>
+      <div className="max-w-4xl mx-auto px-8 text-center">
         {/* Main Headline */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 font-sans leading-tight">
+        <h2 ref={headlineRef.ref} style={headlineRef.style} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 font-sans leading-tight">
           The best AI systems<br />
           are built <span className="text-accent italic">side by side</span>.
         </h2>
 
         {/* CTA Button */}
         <Button 
+          ref={buttonRef.ref}
+          style={buttonRef.style}
           variant="outline" 
           size="lg"
           className="px-8 py-4 text-lg border-2 border-white text-white bg-transparent hover:bg-white hover:text-background transition-all duration-300 rounded-full"
