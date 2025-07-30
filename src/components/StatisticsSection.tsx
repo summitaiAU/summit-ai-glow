@@ -1,0 +1,87 @@
+import React from 'react';
+
+const StatisticsSection = () => {
+  return (
+    <section className="animated-bg relative py-20" data-scroll-section>
+      <div className="max-w-7xl mx-auto px-8">
+        {/* Headline */}
+        <div className="mb-16" data-scroll data-scroll-speed="0.5">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left">
+            <span className="text-white">We don't sell AI. We sell </span>
+            <span className="text-accent italic">Results</span>
+            <span className="text-white">.</span>
+          </h2>
+        </div>
+
+        {/* Statistics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          {/* Column 1 */}
+          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.1">
+            <div className="space-y-4">
+              <div className="relative">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
+                  10+
+                </h3>
+                <div className="w-16 h-1 bg-accent rounded-full"></div>
+              </div>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Bespoke AI solutions developed
+              </p>
+              <a 
+                href="#portfolio" 
+                className="inline-flex items-center text-accent hover:text-accent-glow transition-colors duration-300 group"
+              >
+                View our portfolio
+                <svg 
+                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2 */}
+          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.2">
+            <div className="space-y-4">
+              <div className="relative">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
+                  25+
+                </h3>
+                <div className="w-16 h-1 bg-accent rounded-full"></div>
+              </div>
+              <p className="text-lg text-white/80 leading-relaxed">
+                AI opportunities identified for businesses
+              </p>
+            </div>
+          </div>
+
+          {/* Column 3 */}
+          <div className="text-left" data-scroll data-scroll-speed="0.3" data-scroll-delay="0.3">
+            <div className="space-y-4">
+              <div className="relative">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
+                  100%
+                </h3>
+                <div className="w-16 h-1 bg-accent rounded-full"></div>
+              </div>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Client satisfaction rate
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default StatisticsSection;
