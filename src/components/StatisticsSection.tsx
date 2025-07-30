@@ -7,7 +7,7 @@ const StatisticsSection = () => {
   const { getFadeStyle } = useScrollFade();
   const { ref, isVisible } = useIntersectionObserver();
   return (
-    <section ref={ref} className={`relative py-20 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section ref={ref} className={`relative py-20 pb-40 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(400)}>
         {/* Headline */}
         <div className="mb-16">
@@ -32,25 +32,6 @@ const StatisticsSection = () => {
               <p className="text-lg text-white/80 leading-relaxed font-sans">
                 Bespoke AI solutions developed
               </p>
-              <a 
-                href="#portfolio" 
-                className="inline-flex items-center text-accent hover:text-accent-glow transition-colors duration-300 group"
-              >
-                View our portfolio
-                <svg 
-                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17 8l4 4m0 0l-4 4m4-4H3" 
-                  />
-                </svg>
-              </a>
             </div>
           </div>
 
