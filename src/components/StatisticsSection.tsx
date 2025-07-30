@@ -4,7 +4,7 @@ import { useScrollFade } from '@/hooks/useScrollFade';
 const StatisticsSection = () => {
   const { getFadeStyle } = useScrollFade();
   return (
-    <section className="animated-bg relative py-20">
+    <section className="relative py-20">
       <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(400)}>
         {/* Headline */}
         <div className="mb-16">

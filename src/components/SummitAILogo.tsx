@@ -6,7 +6,7 @@ const SummitAILogo = () => {
       <img 
         src="/lovable-uploads/9758e9cf-dd23-41d1-b627-739956c2f01a.png" 
         alt="Summit AI Logo"
-        className="h-8 w-auto"
+        className="h-4 w-auto"
       />
       <span className="text-xl font-bold text-white leading-none tracking-tight">
         summitAI

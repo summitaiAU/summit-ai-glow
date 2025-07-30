@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SummitAILogo from './SummitAILogo';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-8">
-      <div className="flex justify-between items-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
+    <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-6xl px-8 transition-all duration-500 ${
+      isScrolled ? 'top-4' : 'top-8'
+    }`}>
+      <div className={`flex justify-between items-center rounded-2xl px-8 py-4 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-black/20 backdrop-blur-xl border border-white/30 shadow-2xl shadow-black/20' 
+          : 'bg-transparent'
+      }`}>
         {/* Logo */}
         <SummitAILogo />
         
