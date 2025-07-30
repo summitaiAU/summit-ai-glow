@@ -20,7 +20,10 @@ export default {
 		extend: {
 			fontFamily: {
 				'hero': 'var(--font-hero)',
+				'serif': 'var(--font-serif)',
 				'body': 'var(--font-body)',
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'display': ['Playfair Display', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

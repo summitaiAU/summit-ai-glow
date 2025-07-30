@@ -3,7 +3,7 @@ import React from 'react';
 const SummitAILogo = () => {
   return (
     <div className="flex items-center space-x-3">
-      {/* Triangle Logo - matching your design */}
+      {/* Hollow white triangle - matching your design */}
       <div className="relative">
         <svg
           width="28"
@@ -13,16 +13,14 @@ const SummitAILogo = () => {
           xmlns="http://www.w3.org/2000/svg"
           className="drop-shadow-lg"
         >
-          {/* Clean triangle shape matching your logo */}
+          {/* Hollow triangle shape */}
           <path
             d="M14 2 L26 22 L2 22 Z"
-            fill="hsl(var(--accent))"
-            className="drop-shadow-glow"
-          />
-          {/* Inner triangle for depth */}
-          <path
-            d="M14 6 L22 18 L6 18 Z"
-            fill="rgba(255,255,255,0.1)"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            className="drop-shadow-subtle"
           />
         </svg>
       </div>

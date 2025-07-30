@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">
-          <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl text-primary">
+          <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-primary">
             We are not an AI
           </h1>
           
@@ -24,12 +24,12 @@ const HeroSection = () => {
           <div className="h-20 md:h-28 lg:h-32 flex items-center justify-center">
             <AnimatedText 
               words={animatedWords}
-              className="hero-text text-4xl md:text-6xl lg:text-7xl"
+              className="font-display text-4xl md:text-6xl lg:text-7xl"
             />
           </div>
           
           {/* Company */}
-          <h2 className="hero-text text-5xl md:text-7xl lg:text-8xl text-muted-foreground">
+          <h2 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-muted-foreground">
             Company
           </h2>
         </div>
