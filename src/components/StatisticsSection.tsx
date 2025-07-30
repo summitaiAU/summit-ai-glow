@@ -16,7 +16,7 @@ const StatisticsSection = () => {
       <div className="max-w-7xl mx-auto px-8">
         {/* Headline */}
         <div className="mb-16">
-          <h2 ref={headlineRef.ref} style={headlineRef.style} className="text-4xl md:text-5xl lg:text-6xl font-bold text-left font-sans">
+          <h2 ref={headlineRef.ref} style={headlineRef.style} className="text-4xl md:text-5xl lg:text-6xl font-light text-left font-sans">
             <span className="text-white">We don't sell AI. We sell </span>
             <span className="text-accent italic">Results</span>
             <span className="text-white">.</span>
@@ -29,7 +29,7 @@ const StatisticsSection = () => {
           <div ref={stat1Ref.ref} style={stat1Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-light text-white mb-4 font-sans">
                   <Counter end={10} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
@@ -44,7 +44,7 @@ const StatisticsSection = () => {
           <div ref={stat2Ref.ref} style={stat2Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-light text-white mb-4 font-sans">
                   <Counter end={25} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
@@ -59,7 +59,7 @@ const StatisticsSection = () => {
           <div ref={stat3Ref.ref} style={stat3Ref.style} className="text-left">
             <div className="space-y-6">
               <div className="relative">
-                <h3 className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 font-sans">
+                <h3 className="text-7xl md:text-8xl lg:text-9xl font-light text-white mb-4 font-sans">
                   <Counter end={100} duration={2000} suffix="%" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
