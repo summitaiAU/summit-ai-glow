@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import AnimatedText from './AnimatedText';
-import SplineScene from './SplineScene';
 import { useGSAP, animateIn, animateText } from '@/hooks/useGSAP';
 
 const HeroSection = () => {
@@ -42,8 +41,10 @@ const HeroSection = () => {
 
   return (
     <section ref={containerRef} className="min-h-screen flex items-center justify-center animated-bg relative" data-scroll-section>
-      {/* 3D Spline Background */}
-      <SplineScene />
+      {/* 3D CSS Background Effect */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="w-full h-full bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-cyan-900/20 animate-pulse"></div>
+      </div>
       
       <div ref={heroRef} className="text-center space-y-8 px-8 max-w-4xl mx-auto relative z-10">
         {/* Main Headline */}
