@@ -9,7 +9,7 @@ const Index = () => {
     <div className="min-h-screen relative">
       {/* 3D Animated Background */}
       <iframe 
-        src="https://my.spline.design/animatedgradientbackgroundforweb-83jahiF1O1F9CXRT2goxN0lc/" 
+        src="https://my.spline.design/animatedgradientbackgroundforweb-rMoVYVkwOU56cPVND2NH4lpP/" 
         frameBorder="0" 
         width="100%" 
         height="100%" 
