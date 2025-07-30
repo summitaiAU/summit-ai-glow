@@ -54,7 +54,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ words, className = "" }) =>
 
   return (
     <span className={`relative ${className}`}>
-      <span className="text-accent font-bold font-display">
+      <span className="text-accent font-display italic">
         {currentText}
         <span 
           className={`ml-1 transition-opacity duration-100 ${

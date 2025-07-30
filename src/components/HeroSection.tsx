@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">
-          <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-primary">
+          <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl text-primary">
             We are not an AI
           </h1>
           
@@ -29,7 +29,7 @@ const HeroSection = () => {
           </div>
           
           {/* Company */}
-          <h2 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl text-muted-foreground">
+          <h2 className="font-sans text-5xl md:text-7xl lg:text-8xl text-muted-foreground">
             Company
           </h2>
         </div>
