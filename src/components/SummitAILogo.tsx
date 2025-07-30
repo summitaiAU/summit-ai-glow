@@ -3,15 +3,26 @@ import React from 'react';
 const SummitAILogo = () => {
   return (
     <div className="flex items-center space-x-3">
-      {/* Logo Image */}
+      {/* Hollow white triangle - matching your design */}
       <div className="relative">
-        <img
-          src="/lovable-uploads/31ccc156-08b0-4621-988f-b0fc1e8d2862.png"
-          alt="SummitAI Logo"
-          width="32"
-          height="32"
+        <svg
+          width="28"
+          height="24"
+          viewBox="0 0 28 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
           className="drop-shadow-lg"
-        />
+        >
+          {/* Hollow triangle shape */}
+          <path
+            d="M14 2 L26 22 L2 22 Z"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            className="drop-shadow-subtle"
+          />
+        </svg>
       </div>
       
       {/* Brand Text - matching your style */}
