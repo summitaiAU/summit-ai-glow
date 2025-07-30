@@ -13,10 +13,10 @@ export const useScrollFade = () => {
   }, []);
 
   const getFadeStyle = (offset: number = 0) => {
-    const fadeDistance = 600; // Increased from 300 to make content visible longer
+    const fadeDistance = 1200; // Much longer fade distance
     const scrollProgress = (scrollY - offset) / fadeDistance;
     const opacity = Math.max(0, 1 - scrollProgress);
-    const translateY = Math.min(30, scrollProgress * 30); // Reduced movement
+    const translateY = Math.min(15, scrollProgress * 15); // Minimal movement
     
     return {
       opacity,
