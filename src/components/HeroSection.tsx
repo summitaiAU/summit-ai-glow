@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">
-          <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl text-primary">
+          <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
             We are not an AI
           </h1>
           
@@ -29,14 +29,14 @@ const HeroSection = () => {
           </div>
           
           {/* Company */}
-          <h2 className="font-sans text-5xl md:text-7xl lg:text-8xl text-muted-foreground">
+          <h2 className="font-sans text-5xl md:text-7xl lg:text-8xl text-white animated-text">
             Company
           </h2>
         </div>
         
         {/* Tagline */}
         <div className="pt-8">
-          <p className="text-lg md:text-xl text-muted-foreground font-medium opacity-80">
+          <p className="text-lg md:text-xl text-white font-medium opacity-80 animated-text">
             We are all of the above.
           </p>
         </div>
