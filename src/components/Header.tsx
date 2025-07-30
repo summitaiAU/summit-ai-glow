@@ -25,12 +25,13 @@ const Header = () => {
         {/* Logo */}
         <SummitAILogo />
         
-        {/* Get In Touch Button */}
+        {/* Book a Call Button */}
         <Button 
           variant="ghost" 
           className="btn-ghost text-primary hover:text-accent transition-colors duration-300 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3"
+          onClick={() => window.open('https://calendly.com/kirt-quar-summitai/discovery-call', '_blank')}
         >
-          Get In Touch
+          Book a Call
           <svg 
             className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
             fill="none" 

@@ -31,6 +31,7 @@ const PartnershipSection = () => {
           variant="outline" 
           size="lg"
           className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg border-2 border-white text-white bg-transparent hover:bg-white hover:text-background transition-all duration-300 rounded-full"
+          onClick={() => window.open('https://calendly.com/kirt-quar-summitai/discovery-call', '_blank')}
         >
           Let's Partner Up
           <svg 
