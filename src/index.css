@@ -138,6 +138,8 @@
       hsl(190 35% 18%) 60%,
       hsl(210 25% 12%) 80%,
       hsl(220 20% 8%) 100%);
+    background-size: 200% 200%;
+    animation: gradient-flow 15s ease-in-out infinite;
   }
 }
 
@@ -185,6 +187,14 @@
   }
 }
 
+@keyframes gradient-flow {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
 
 @keyframes gradient-float {
   0%, 100% { 
