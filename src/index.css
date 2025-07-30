@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* SummitAI Landing Page Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* SummitAI Dark Theme */
+    --background: 220 20% 8%;
+    --background-gradient: linear-gradient(135deg, hsl(220 20% 8%), hsl(210 25% 12%));
+    --foreground: 210 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system */
+    --card: 220 15% 12%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 15% 12%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand colors */
+    --primary: 210 20% 95%;
+    --primary-foreground: 220 20% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 15% 25%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 15% 20%;
+    --muted-foreground: 210 10% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* SummitAI signature green */
+    --accent: 155 100% 55%;
+    --accent-foreground: 220 20% 8%;
+    --accent-glow: 155 100% 50%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 155 100% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Animated gradient system */
+    --gradient-primary: linear-gradient(135deg, 
+      hsl(220 20% 8%) 0%, 
+      hsl(210 25% 12%) 25%,
+      hsl(200 30% 15%) 50%,
+      hsl(210 25% 12%) 75%,
+      hsl(220 20% 8%) 100%);
+    
+    --gradient-accent: linear-gradient(135deg, 
+      hsla(155 100% 55% / 0.1) 0%, 
+      hsla(165 80% 45% / 0.05) 50%,
+      hsla(155 100% 55% / 0.1) 100%);
+
+    /* Typography scale */
+    --font-hero: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Animation timings */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsla(155 100% 55% / 0.3);
+    --shadow-subtle: 0 4px 20px hsla(220 20% 8% / 0.4);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +129,97 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body overflow-x-hidden;
+    background: var(--gradient-primary);
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease-in-out infinite;
   }
+}
+
+@layer components {
+  /* Animated background */
+  .animated-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-accent);
+    background-size: 400% 400%;
+    animation: gradient-float 15s ease-in-out infinite;
+    opacity: 0.3;
+  }
+
+  /* Hero typography */
+  .hero-text {
+    font-family: var(--font-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Typewriter effect */
+  .typewriter {
+    overflow: hidden;
+    border-right: 3px solid hsl(var(--accent));
+    white-space: nowrap;
+    animation: typing 2s steps(20) forwards, blink 1s infinite;
+  }
+
+  /* Button variants */
+  .btn-ghost {
+    @apply px-6 py-3 rounded-full border border-primary/20 text-primary 
+           bg-transparent backdrop-blur-sm transition-all duration-300 
+           hover:bg-primary/10 hover:border-primary/40 hover:shadow-glow;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradient-float {
+  0%, 100% { 
+    background-position: 0% 50%;
+    transform: translateY(0px);
+  }
+  50% { 
+    background-position: 100% 50%;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: hsl(var(--accent)); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease-out forwards;
 }
