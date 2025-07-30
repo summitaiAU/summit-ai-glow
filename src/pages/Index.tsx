@@ -9,19 +9,26 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [elementsLoaded, setElementsLoaded] = useState({
     background: false,
-    images: false
+    images: false,
+    splineReady: false
   });
+  const [loadingStartTime] = useState(Date.now());
 
   // Check if all elements are loaded
   useEffect(() => {
-    if (elementsLoaded.background && elementsLoaded.images) {
-      // Add a small delay to ensure smooth transition
+    if (elementsLoaded.background && elementsLoaded.images && elementsLoaded.splineReady) {
+      // Ensure minimum loading time of 2 seconds for better UX
+      const elapsed = Date.now() - loadingStartTime;
+      const minLoadTime = 2000;
+      const remainingTime = Math.max(0, minLoadTime - elapsed);
+      
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, remainingTime + 500); // Additional 500ms for smooth transition
+      
       return () => clearTimeout(timer);
     }
-  }, [elementsLoaded]);
+  }, [elementsLoaded, loadingStartTime]);
 
   // Preload images
   useEffect(() => {
@@ -53,6 +60,11 @@ const Index = () => {
 
   const handleBackgroundLoad = () => {
     setElementsLoaded(prev => ({ ...prev, background: true }));
+    
+    // Additional check for Spline content readiness
+    setTimeout(() => {
+      setElementsLoaded(prev => ({ ...prev, splineReady: true }));
+    }, 1000); // Give Spline extra time to render
   };
 
   const handleLoadingComplete = () => {
@@ -64,14 +76,20 @@ const Index = () => {
   }
   return (
     <div className="min-h-screen relative animate-fade-in">
+      {/* Fallback Background - Prevents white flash */}
+      <div className="fixed top-0 left-0 w-screen h-screen z-[-2]"
+           style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)' }} />
+      
       {/* 3D Animated Background */}
       <iframe 
+        id="spline-background"
         src="https://my.spline.design/animatedgradientbackgroundforweb-rMoVYVkwOU56cPVND2NH4lpP/" 
         frameBorder="0" 
         width="100%" 
         height="100%" 
         className="fixed top-0 left-0 w-screen h-screen z-[-1] pointer-events-none"
         title="Animated Background"
+        loading="eager"
         onLoad={handleBackgroundLoad}
       />
       
