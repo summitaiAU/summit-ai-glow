@@ -7,8 +7,8 @@ const StatisticsSection = () => {
   const { getFadeStyle } = useScrollFade();
   const { ref, isVisible } = useIntersectionObserver();
   return (
-    <section ref={ref} className={`relative py-20 pb-40 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-      <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(200)}>
+    <section ref={ref} className={`min-h-screen flex items-center justify-center relative py-20 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(0)}>
         {/* Headline */}
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left font-sans">

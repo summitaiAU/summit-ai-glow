@@ -10,11 +10,11 @@ const PartnershipSection = () => {
   return (
     <section 
       ref={ref} 
-      className={`relative py-32 transition-all duration-1000 transform ${
+      className={`min-h-screen flex items-center justify-center relative transition-all duration-1000 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <div className="max-w-4xl mx-auto px-8 text-center" style={getFadeStyle(400)}>
+      <div className="max-w-4xl mx-auto px-8 text-center" style={getFadeStyle(0)}>
         {/* Main Headline */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 font-sans leading-tight">
           The best AI systems<br />
