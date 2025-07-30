@@ -20,7 +20,7 @@ const HeroSection = () => {
   const ctaRef = useFadeRef();
 
   return (
-    <section className="min-h-screen flex items-center justify-center animated-bg relative">
+    <section className="min-h-screen flex items-center justify-center relative">
       <div className="text-center space-y-8 px-8 max-w-4xl mx-auto">
         {/* Main Headline */}
         <div className="space-y-4">

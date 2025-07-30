@@ -7,10 +7,23 @@ import PartnershipSection from '@/components/PartnershipSection';
 const Index = () => {
   return (
     <div className="min-h-screen relative">
-      <Header />
-      <HeroSection />
-      <StatisticsSection />
-      <PartnershipSection />
+      {/* 3D Animated Background */}
+      <iframe 
+        src="https://my.spline.design/animatedgradientbackgroundforweb-83jahiF1O1F9CXRT2goxN0lc/" 
+        frameBorder="0" 
+        width="100%" 
+        height="100%" 
+        className="fixed top-0 left-0 w-screen h-screen z-[-1] pointer-events-none"
+        title="Animated Background"
+      />
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
+        <StatisticsSection />
+        <PartnershipSection />
+      </div>
     </div>
   );
 };
