@@ -7,16 +7,53 @@ import LoadingScreen from '@/components/LoadingScreen';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [elementsLoaded, setElementsLoaded] = useState({
+    background: false,
+    images: false
+  });
 
-  // Simulate content loading
+  // Check if all elements are loaded
   useEffect(() => {
-    // Preload any assets if needed
-    const timer = setTimeout(() => {
-      // Additional loading logic can go here
-    }, 100);
+    if (elementsLoaded.background && elementsLoaded.images) {
+      // Add a small delay to ensure smooth transition
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [elementsLoaded]);
 
-    return () => clearTimeout(timer);
+  // Preload images
+  useEffect(() => {
+    const imageUrls = [
+      '/lovable-uploads/9758e9cf-dd23-41d1-b627-739956c2f01a.png',
+      '/lovable-uploads/483b0c93-f171-47bc-9400-6988015ebfa9.png'
+    ];
+
+    let loadedCount = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach(url => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setElementsLoaded(prev => ({ ...prev, images: true }));
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setElementsLoaded(prev => ({ ...prev, images: true }));
+        }
+      };
+      img.src = url;
+    });
   }, []);
+
+  const handleBackgroundLoad = () => {
+    setElementsLoaded(prev => ({ ...prev, background: true }));
+  };
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -35,6 +72,7 @@ const Index = () => {
         height="100%" 
         className="fixed top-0 left-0 w-screen h-screen z-[-1] pointer-events-none"
         title="Animated Background"
+        onLoad={handleBackgroundLoad}
       />
       
       {/* Content */}
