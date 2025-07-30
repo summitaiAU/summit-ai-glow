@@ -1,14 +1,17 @@
 import React from 'react';
 import { useScrollFade } from '@/hooks/useScrollFade';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import Counter from './Counter';
 
 const StatisticsSection = () => {
   const { getFadeStyle } = useScrollFade();
+  const { ref, isVisible } = useIntersectionObserver();
   return (
-    <section className="relative py-20">
+    <section ref={ref} className={`relative py-20 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="max-w-7xl mx-auto px-8" style={getFadeStyle(400)}>
         {/* Headline */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left font-sans">
             <span className="text-white">We don't sell AI. We sell </span>
             <span className="text-accent italic">Results</span>
             <span className="text-white">.</span>
@@ -21,12 +24,12 @@ const StatisticsSection = () => {
           <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
-                  10+
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
+                  <Counter end={10} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
-              <p className="text-lg text-white/80 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed font-sans">
                 Bespoke AI solutions developed
               </p>
               <a 
@@ -55,12 +58,12 @@ const StatisticsSection = () => {
           <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
-                  25+
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
+                  <Counter end={25} duration={2000} suffix="+" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
-              <p className="text-lg text-white/80 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed font-sans">
                 AI opportunities identified for businesses
               </p>
             </div>
@@ -70,12 +73,12 @@ const StatisticsSection = () => {
           <div className="text-left">
             <div className="space-y-4">
               <div className="relative">
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2">
-                  100%
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 font-sans">
+                  <Counter end={100} duration={2000} suffix="%" isVisible={isVisible} />
                 </h3>
                 <div className="w-16 h-1 bg-accent rounded-full"></div>
               </div>
-              <p className="text-lg text-white/80 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed font-sans">
                 Client satisfaction rate
               </p>
             </div>
