@@ -14,7 +14,7 @@ const PartnershipSection = () => {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <div className="max-w-4xl mx-auto px-8 text-center" style={getFadeStyle(800)}>
+      <div className="max-w-4xl mx-auto px-8 text-center" style={getFadeStyle(400)}>
         {/* Main Headline */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 font-sans leading-tight">
           The best AI systems<br />
