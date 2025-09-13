@@ -4,6 +4,8 @@ import HeroSection from '@/components/HeroSection';
 import StatisticsSection from '@/components/StatisticsSection';
 import PartnershipSection from '@/components/PartnershipSection';
 import SummitAILogo from '@/components/SummitAILogo';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [loadingChecks, setLoadingChecks] = useState({
@@ -133,6 +135,13 @@ const Index = () => {
           <HeroSection />
           <StatisticsSection />
           <PartnershipSection />
+          
+          {/* Lead Revive Link */}
+          <div className="flex justify-center pb-8">
+            <Button variant="ghost" asChild className="text-white hover:text-white/80">
+              <Link to="/leadrevive">Lead Revive</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </>
