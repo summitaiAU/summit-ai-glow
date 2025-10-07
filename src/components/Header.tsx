@@ -25,8 +25,17 @@ const Header = () => {
         {/* Logo */}
         <SummitAILogo />
         
-        {/* Book a Call Button */}
-        <Button 
+        {/* Navigation Buttons */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          <Button 
+            variant="ghost" 
+            className="btn-ghost text-primary hover:text-accent transition-colors duration-300 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3"
+            onClick={() => window.location.href = '/casestudy1'}
+          >
+            Case Studies
+          </Button>
+          
+          <Button
           variant="ghost" 
           className="btn-ghost text-primary hover:text-accent transition-colors duration-300 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3"
           onClick={() => window.open('https://calendly.com/kirt-quar-summitai/discovery-call', '_blank')}
@@ -46,6 +55,7 @@ const Header = () => {
             />
           </svg>
         </Button>
+        </div>
       </div>
     </header>
   );

@@ -135,13 +135,6 @@ const Index = () => {
           <HeroSection />
           <StatisticsSection />
           <PartnershipSection />
-          
-          {/* Lead Revive Link */}
-          <div className="flex justify-center pb-8">
-            <Button variant="ghost" asChild className="text-white hover:text-white/80">
-              <Link to="/leadrevive">Lead Revive</Link>
-            </Button>
-          </div>
         </div>
       </div>
     </>
